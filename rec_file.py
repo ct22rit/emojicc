@@ -34,10 +34,11 @@ def sender():
 
 
 # Receiver's side
-def receiver(encoded_message):
+def receiver():
+    with open('text.txt', 'r') as file:
+        encoded_message = file.read().strip()  # Read the encoded message from the file
     text = emoji_to_text(encoded_message)
     print(f"Decoded message received: {text}")
 
 
-text = input("Enter your message to decode: ")
-receiver(text)
+receiver()
